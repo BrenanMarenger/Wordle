@@ -1,0 +1,51 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.global.js"></script>
+    <script defer src="js/words.js"></script>
+    <script defer src="js/client.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <h1 class="center">Wordle</h1>
+    <p class="center">Guess a 5 letter word.  Yellow means that letter is in common with the secret word.  Green means
+        it matches and it is in the right spot.
+    </p>
+    <div id="app" class="center">
+        <div>
+            <input class="bigFont" v-bind:disabled="gameOver" ref="wordInput" type="text" v-model="wordGuess">
+            <button class="bigFont" @click="pushGuess">Guess!</button>
+            <button class="bigFont" @click="reset">Reset!</button>
+        </div>
+        <div>
+            <!--
+            <span class="guessedLetter" v-for="letter of wordGuess">{{letter}}</span>
+            -->
+            <div class="bigFont" v-for="guess of previousGuesses">
+                <span class="guessedLetter" v-bind:class="{yellow: checkForCorrectLetters(char, charIndex)==1, green: checkForCorrectLetters(char, charIndex)==2}" v-for="(char, charIndex) of guess">{{char}}</span>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>
+
+<!-- 
+    TODO: Discuss how to load data:
+        FileReader API - good for local files
+        AJAX - get a resource on the server or call a script on the server
+        Multiple script files
+        JavaScript modules
+    Feature list TODO: Prevent repeat words
+-->

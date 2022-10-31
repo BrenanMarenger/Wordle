@@ -1,0 +1,57 @@
+
+.center {
+    text-align: center;
+}
+
+body {
+    background-color: darkslategrey;
+    color: white;
+}
+
+#app {
+    background-color: whitesmoke;
+}
+
+.bigFont {
+    font-size: 300%;
+}
+
+input {
+    font-family: 'Nunito', sans-serif;
+    background-color: blanchedalmond;
+    color: black;
+    border: 1px solid black;
+}
+
+.guessedLetter {
+    font-family: 'Nunito', sans-serif;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin: 5px;
+    padding: 5px;
+    background-color: blanchedalmond;
+    color: black;
+    border: 1px solid black;
+}
+
+.error {
+    background-color: red;
+    color: white;
+    position: relative;
+    animation: shake .1s linear;
+    animation-iteration-count: 3;
+}
+
+@keyframes shake {
+    0% { left: -5px; }
+    100% { right: -5px; }
+}
+
+.yellow {
+    background-color: rgb(255, 255, 0);
+}
+
+.green {
+    background-color: rgb(56, 238, 0);
+}
